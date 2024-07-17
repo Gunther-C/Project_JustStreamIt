@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css2?family=Charm&family=Parisienne&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="responsive.css">
+
+	<script src="script.js" defer></script>
+
+	<title>Document</title>
+</head>
+<body>
+	<main>
+		<div id="title">
+			<figure id="logo-site">
+				<img src="img/logo_site.png" alt="Logo du site">
+			</figure>
+			<h1 id="title-site">Vidéos à la demande</h1>
+		</div>
+
+		<div id="best-video">
+			<h2>Meilleur film</h2>
+			<div class="best-video">
+				<figure><img src="" alt="Photo meilleur film" class="best-img"></figure>
+				<div>
+					<h3 class="best-title"></h3>
+					<h4 class="best-year"></h4>
+					<h4 class="best-score"><span>IMDB score :</span></h4>
+					<p class="best-text"></p>
+					<div class="best-footer">
+						<button type="button" class="best-details">Détails</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="content-best-videos" class="category-content">
+			<div class="category-header"><h2></h2></div>
+			<div id="best-videos" class="category-body"></div>
+			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+		</div>	
+
+		<div id="content-category-1" class="category-content">
+			<div class="category-header"><h2></h2></div>
+			<div id="category-1" class="category-body"></div>
+			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+		</div>
+
+		<div id="content-category-2" class="category-content">
+			<div class="category-header"><h2></h2></div>
+			<div id="category-2" class="category-body"></div>
+			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+		</div>
+
+		<div id="content-category-3" class="category-content">
+			<div class="category-header"><h2></h2></div>
+			<div id="category-3" class="category-body"></div>
+			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+		</div>
+
+	</main>
+</body>
+
+
+<template id="tp-category">
+	<figure class="video-view">
+		<img src="img/img_replace.png" alt="L'affiche du film est absente">
+		<figcaption>
+			<h3></h3>
+		</figcaption>
+	</figure>
+</template>
+
+
+<template id="tp-select">
+	<div id="select-categories">
+		<h3 >Choisissez une catégorie : </h3>
+		<button type="button" id="select-show">
+			<span> > </span>
+			<span>Autres catégories</span> 
+			<span> > </span>
+			<div id="select-options" class="display-none"></div>
+		</button>
+	</div>
+</template>
+
+
+<template id="tp-modal">
+	<div id="modal">
+		<div class="modal-content">
+			<div class="modal">
+				<div class="modal-header">
+					<div>
+						<h1></h1>
+						<h4></h4>
+						<h4></h4>
+						<h4></h4>
+						<p>
+							<strong>Réalisé par :</strong>
+							<span></span>
+						</p>
+					</div>
+					<figure class="modal-figure"><img src="" alt="L'affiche du film est absente"></figure>
+				</div>
+				<div class="modal-body">
+					<p></p>
+					<p></p>
+				</div>
+			</div>
+			<div class="modal-footer"><button type="button" id="modal-close">Fermer</button></div>
+		</div>
+	</div>
+</template>
+
+</html>
