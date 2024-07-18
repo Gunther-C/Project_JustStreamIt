@@ -24,12 +24,12 @@
 		<div id="best-video">
 			<h2>Meilleur film</h2>
 			<div class="best-video">
-				<figure><img src="" alt="Photo meilleur film" class="best-img"></figure>
+				<figure><img src="img/logo_site.png" alt="Photo meilleur film" class="best-img"></figure>
 				<div>
-					<h3 class="best-title"></h3>
-					<h4 class="best-year"></h4>
+					<h3 class="best-title">Titre</h3>
+					<h4 class="best-year">Année de sortie</h4>
 					<h4 class="best-score"><span>IMDB score :</span></h4>
-					<p class="best-text"></p>
+					<p class="best-text">Détails du film</p>
 					<div class="best-footer">
 						<button type="button" class="best-details">Détails</button>
 					</div>
@@ -38,81 +38,81 @@
 		</div>
 
 		<div id="content-best-videos" class="category-content">
-			<div class="category-header"><h2></h2></div>
+			<div class="category-header"><h2>Films les mieux classés</h2></div>
 			<div id="best-videos" class="category-body"></div>
-			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
-		</div>	
+			<div class="category-footer"></div>
+		</div>
 
 		<div id="content-category-1" class="category-content">
-			<div class="category-header"><h2></h2></div>
+			<div class="category-header"><h2>Catégorie 1</h2></div>
 			<div id="category-1" class="category-body"></div>
-			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+			<div class="category-footer"></div>
 		</div>
 
 		<div id="content-category-2" class="category-content">
-			<div class="category-header"><h2></h2></div>
+			<div class="category-header"><h2>Catégorie 2</h2></div>
 			<div id="category-2" class="category-body"></div>
-			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+			<div class="category-footer"></div>
 		</div>
 
 		<div id="content-category-3" class="category-content">
-			<div class="category-header"><h2></h2></div>
+			<div class="category-header"><h2>Catégorie au choix</h2></div>
 			<div id="category-3" class="category-body"></div>
-			<div class="category-footer"><button type="button" class="category-allview">Ouvrir</button></div>
+			<div class="category-footer"></div>
 		</div>
 
 	</main>
-</body>
 
 
-<template id="tp-category">
-	<figure class="video-view">
-		<img src="img/img_replace.png" alt="L'affiche du film est absente">
-		<figcaption>
-			<h3></h3>
-		</figcaption>
-	</figure>
-</template>
+	<template id="tp-category">
+		<figure class="video-view">
+			<img src="img/img_replace.png" alt="L'affiche du film est absente">
+			<figcaption>
+				<h3></h3>
+			</figcaption>
+		</figure>
+	</template>
 
 
-<template id="tp-select">
-	<div id="select-categories">
-		<h3 >Choisissez une catégorie : </h3>
-		<button type="button" id="select-show">
-			<span> > </span>
-			<span>Autres catégories</span> 
-			<span> > </span>
-			<div id="select-options" class="display-none"></div>
-		</button>
-	</div>
-</template>
-
-
-<template id="tp-modal">
-	<div id="modal">
-		<div class="modal-content">
-			<div class="modal">
-				<div class="modal-header">
-					<div>
-						<h1></h1>
-						<h4></h4>
-						<h4></h4>
-						<h4></h4>
-						<p>
-							<strong>Réalisé par :</strong>
-							<span></span>
-						</p>
-					</div>
-					<figure class="modal-figure"><img src="" alt="L'affiche du film est absente"></figure>
-				</div>
-				<div class="modal-body">
-					<p></p>
-					<p></p>
-				</div>
-			</div>
-			<div class="modal-footer"><button type="button" id="modal-close">Fermer</button></div>
+	<template id="tp-select">
+		<div id="select-categories">
+			<h3 >Choisissez une catégorie : </h3>
+			<button type="button" id="select-show">
+				<span> > </span>
+				<span>Autres catégories</span>
+				<span> > </span>
+				<div id="select-options" class="display-none"></div>
+			</button>
 		</div>
-	</div>
-</template>
+	</template>
 
+	<template id="tp-modal">
+		<div id="modal">
+			<div class="modal-content">
+				<div class="modal">
+					<div class="modal-header">
+						<div>
+							<h1></h1>
+							<h4></h4>
+							<h4></h4>
+							<h4></h4>
+							<p>
+								<strong>Réalisé par :</strong>
+								<span></span>
+							</p>
+						</div>
+						<figure class="modal-figure"><img src="img/img_replace.png" alt="L'affiche du film est absente"></figure>
+					</div>
+					<div class="modal-body">
+						<p></p>
+						<p></p>
+					</div>
+				</div>
+				<div class="modal-footer"><button type="button" id="modal-close">Fermer</button></div>
+			</div>
+		</div>
+	</template>
+
+
+</body>
 </html>

@@ -1,5 +1,4 @@
 
-
 async function _categories_name(){
 
     try{
@@ -196,6 +195,62 @@ function _categories_SelectHtml_create() {
     }
 }
 
+
+function _category_resize(content, count_video) {
+
+    let resize = parseInt(window.innerWidth);
+
+    let footer = content.children[2];
+
+    let button = document.createElement(`button`);
+    button.setAttribute(`type`, `button`);
+    button.setAttribute(`class`, `category-allview`);
+    button.innerHTML = `Ouvrir`;
+
+    switch(true) {
+
+        case (resize < 450):
+
+            if(count_video > 2) {
+
+                if(footer.children.length > 0) {
+                    footer.children[0].classList.remove(`display-none`);
+                    footer.children[0].innerHTML = `Ouvrir`;
+
+                }
+                else { footer.appendChild(button); }
+            }
+            else {
+
+                if(footer.children.length > 0) footer.children[0].classList.add(`display-none`);
+            }
+            break;
+
+        case (resize < 800):
+
+            if(count_video > 4) {
+
+                if(footer.children.length > 0) {
+
+                    footer.children[0].classList.remove(`display-none`);
+                    footer.children[0].innerHTML = `Ouvrir`;
+
+                }
+                else { footer.appendChild(button); }
+            }
+            else {
+
+                if(footer.children.length > 0) footer.children[0].classList.add(`display-none`);
+            }
+            break;
+
+        default:
+            console.log(`resize`);
+            break;
+    }
+
+}
+
 function _category_create(id_container, catg_name, values) {
 
     let count_video = Object.keys(values).length;
@@ -233,19 +288,15 @@ function _category_create(id_container, catg_name, values) {
             if(x >= 5) break;
         }
 
-        if(count_video < 5 && !content.children[2].classList.contains(`display-none`)) {
 
-            content.children[2].classList.add(`display-none`);
-        }
-        else {
-            content.children[2].classList.remove(`display-none`);
-        }
+        _category_resize(content, count_video);
 
-    } 
+    }
     else {
         console.error(`Erreur création de la page`);
     }
 }
+
 
 function _modal_create(video) {
 
@@ -289,7 +340,7 @@ function _modal_create(video) {
 
         container.appendChild(modal_elements);
 
-    } 
+    }
     else {
         console.error(`Erreur création Modal`);
     }
@@ -309,7 +360,7 @@ function _modal_show() {
             .then((new_video) => {
 
                 if(document.getElementById(`modal`) === null) {
-                    
+
                     const modal = _modal_create(new_video);
                 }
             })
@@ -319,11 +370,11 @@ function _modal_show() {
 
                 const body = document.querySelector(`body`);
                 const page = document.querySelector(`#modal`);
-                const selectOptions = document.getElementById(`select-options`); 
+                const selectOptions = document.getElementById(`select-options`);
 
                 body.style.overflow = `hidden`;
                 page.style.top = `${new_top}px`;
-                
+
                 if (!selectOptions.classList.contains(`display-none`)) selectOptions.classList.add(`display-none`);
 
                 // Déplacer l'affiche si mode mobile
@@ -332,7 +383,7 @@ function _modal_show() {
                     let modal_body = document.querySelector(`.modal-body`);
                     let modal_figure = document.querySelector(`.modal-figure`);
                     modal_body.insertBefore(modal_figure, modal_body.children[1]);
-                } 
+                }
 
                 // Fermeture modal
                 const modal_close = document.getElementById(`modal-close`);
@@ -342,7 +393,7 @@ function _modal_show() {
                     page.remove();
                     body.style.overflow = `auto`;
                 })
-                
+
             })
             .catch((error) => console.warn(error))
         })
@@ -416,16 +467,15 @@ document.addEventListener('DOMContentLoaded', function () {
         // Catégories liste
         const selectHtml = _categories_SelectHtml_create();
 
-        const selectShow = document.getElementById(`select-show`); 
+        const selectShow = document.getElementById(`select-show`);
 
-        const selectOptions = document.getElementById(`select-options`); 
+        const selectOptions = document.getElementById(`select-options`);
 
         const optionsAll = document.querySelectorAll(`.unity-option`);
 
         const viewsAll = document.querySelectorAll(`.category-allview`);
 
-
-        function unity_hide(parent, figure, view) {
+        function unity_hide(parent, figure) {
 
             if(parent.contains(figure)) {
 
@@ -434,29 +484,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 if(stat_element.display === `none`) {
 
                     figure.style.display = `block`;
-                    view.innerHTML = `Fermer`;
-                } 
+                }
                 else {
                     figure.style.display = `none`;
-                    view.innerHTML = `Ouvrir`;
                 }
             }
         }
 
-        // Catégories (Ouverture select)
+
+        // Select Catégories (Ouverture)
         selectShow.addEventListener(`click`, () => {
 
             if(selectOptions.classList.contains(`display-none`)) {
 
                 selectOptions.classList.remove(`display-none`);
-            } 
+            }
             else {
                 selectOptions.classList.add(`display-none`);
             }
         });
 
 
-        // Catégories (choix)
+        // Select Catégories (choix d'une catégorie)
         optionsAll.forEach((category) => {
 
             category.addEventListener(`click`, (e) => {
@@ -466,15 +515,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 _category_api(`6`, `&genre=` + category_name)
                 .then((result) => {
 
-                    const container = document.getElementById(`category-3`); 
+                    const container = document.getElementById(`category-3`);
 
                     while (container.firstChild) {
-                        
+
                         container.removeChild(container.firstChild);
                     }
 
                     return result;
-                    
+
                 })
                 .then((result) => {
 
@@ -492,48 +541,59 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 
 
-        // Catégories (Ouverture modal)
+        // Modal Catégories (Ouverture)
         _modal_show();
 
 
         // Catégories (Vue des films cachés)
-        viewsAll.forEach((view) => {
+        viewsAll.forEach((btn_view) => {
 
-            view.addEventListener(`click`, (e) => {
+            btn_view.addEventListener(`click`, (e) => {
 
                 return new Promise((resolve, reject) => {
 
-                    let div = view.parentNode;
+                    let resize = parseInt(window.innerWidth);
+
+                    let div = btn_view.parentNode;
                     let parent = div.parentNode;
 
                     let videos = parent.querySelector(`.category-body`);
+                    let videos_count = videos.children.length;
 
-                    if(videos.children.length > 2) {
+                    switch(true) {
 
-                        let figure_3 = videos.children[2];
-                        let figure_4 = videos.children[3];
+                        case (resize < 426 && videos_count > 2):
 
-                        unity_hide(parent, figure_3, view);
-                        unity_hide(parent, figure_4, view);
+                            for(let x = 2; x <= 5; x++) {
+
+                                unity_hide(parent, videos.children[x]);
+                            }
+                            break;
+
+                        case (resize < 769 && videos_count > 4):
+
+                            unity_hide(parent, videos.children[4]);
+                            unity_hide(parent, videos.children[5]);
+                            break;
+
+                        default:
+                            console.log(`resize`);
+                            break;
                     }
 
-                    if(videos.children.length > 4) {
+                    if(btn_view.innerHTML === `Ouvrir`) {
 
-                        let figure_5 = videos.children[4];
-                        let figure_6 = videos.children[5];
-
-                        unity_hide(parent, figure_5, view);
-                        unity_hide(parent, figure_6, view);
+                        btn_view.innerHTML = `Fermer`;
+                    }
+                    else {
+                        btn_view.innerHTML = `Ouvrir`;
                     }
 
                 }) 
                 .catch((error) => console.warn(error))
-
             })
         })
-
     })
     .catch((error) => console.warn(error))
 
 }, false);
-

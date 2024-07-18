@@ -52,7 +52,7 @@
 
 	.best-video .best-footer .best-details {
 	    padding: 0.8em 3em;
-	    font-size: 1.8em;
+	    font-size: 1.5em;
 	}
 
 
@@ -103,7 +103,7 @@
 
 	.modal-header div p span, .modal-header div p strong {
 	    font-size: 2em;
-	} 
+	}
 
 	.modal-body > p {
 		font-size: 1.6em;
@@ -120,6 +120,10 @@
 @media screen and (max-width:1440px) {
 	.category-body > figure {
 	    height: 77.2vh;
+	}
+
+	.modal-header div h1 {
+	    font-size: 1.9em;
 	}
 }
 
@@ -164,20 +168,20 @@
 	    max-width: 67%;
 	}
 
-	.best-video div > h4{ 
-		font-size: 1.3em; 
+	.best-video div > h4{
+		font-size: 1.3em;
 	}
 
-	.best-video div p{ 
-		font: normal 1.4em 'Parisienne', helvetica , sans-serif; 
+	.best-video div p{
+		font: normal 1.4em 'Parisienne', helvetica , sans-serif;
 	}
 
 	.best-video .best-footer .best-details {
 	    padding: 0.5em 2.3em;
 	}
-	
 
-	.category-content { 
+
+	.category-content {
 		margin-top: 23%;
 	}
 
@@ -213,29 +217,25 @@
 	    font-size: 2em;
 	}
 
-	.best-video div > h4{ 
-		font-size: 1.1em; 
+	.best-video div > h4{
+		font-size: 1.1em;
 	}
 
-	.best-video div p{ 
+	.best-video div p{
 		height: 18vh;
-		font: normal 1.1em 'Parisienne', helvetica , sans-serif; 
+		font: normal 1.1em 'Parisienne', helvetica , sans-serif;
 	}
 
 
 	.category-body > figure {
 	    flex: 1 0 45%;
 	    max-width: 45%;
-	    height: 61vh;
+	    height: 64vh;
 	    margin-bottom: 4%;
 	}
 
 	.category-body > figure:nth-of-type(5), .category-body > figure:nth-of-type(6) {
 		display: none;
-	}
-
-	.category-footer > button {
-	    display: block;
 	}
 
 
@@ -251,11 +251,6 @@
 	.modal-content {
 	    width: 80%;
 	}
-
-	.modal-header > div > h1 {
-	    font-size: 2.2em;
-	}
-
 }
 
 
@@ -282,7 +277,7 @@
 	    justify-content: center;
 	}
 
-	#title-site{ 
+	#title-site{
 		display: none;
 	}
 
@@ -314,7 +309,7 @@
 	}
 
 
-	.category-content { 
+	.category-content {
 		margin-top: 50%;
 	}
 
@@ -383,7 +378,7 @@
 
 @media screen and (max-width:376px) {
 
-	.category-content { 
+	.category-content {
 		margin-top: 60%;
 	}
 
@@ -406,9 +401,10 @@
 
 @media screen and (max-width:321px) {
 
-	.category-content { 
+	.category-content {
 		margin-top: 70%;
 	}
+
 	.category-body > figure {
 	    height: 55.3vh;
 	}
